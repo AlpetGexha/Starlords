@@ -21,10 +21,17 @@ php artisan serve
 ``` 
 npm run dev
 ```
-##### With Queue 
+With Queue 
 ``` 
 php artisan queue:work
 ```
+
+# Account
+``` 
+Username: admin
+Password: admin
+```
+
 
 
 ### Configurate
