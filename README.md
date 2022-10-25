@@ -1,4 +1,4 @@
-# About
+# About Starlord
 
 This website its Online Ticket shop (e-Ticket) an online portal that purchases and sells tickets to concerts and events worldwid
 ![Dashboard _ Admin - Starloards](https://user-images.githubusercontent.com/50520333/197030581-88aeaea2-8760-48f1-970f-e8e10e48b873.png)
@@ -7,11 +7,11 @@ This website its Online Ticket shop (e-Ticket) an online portal that purchases a
 
 # Installation
 ```
-git clone
-cd Starlab-Intership-Team-4
-cp .env.example .env
+git clone https://github.com/AlpetGexh/Starlords.git
+cd Starlords
 composer update
 npm install
+cp .env.example .env
 php artisan migrate --seed
 ```
 ### Start Project
@@ -27,21 +27,12 @@ npm run dev
 - Server Configurate `.env`
 - Project other Configurate `config/`
 
-### Technology we use:
+### Technology:
 - TALL Stack
 - TailwinCSS
 - AlpineJS (3)
 - Laravel (9)
 - Livewire
-
-### Some Package
-- Laravel Jetstream
-- Laravel Socialite
-- Laravel Cashier (Stripe)
-- Laravel Debugger
-- Role and Permission (spatie)
-- Medialibrary (spatie)
-- WireUI
 
 
 # Feature
