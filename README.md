@@ -18,10 +18,14 @@ php artisan migrate --seed
 ``` 
 php artisan serve
 ```
-And
 ``` 
 npm run dev
 ```
+##### With Queue 
+``` 
+php artisan queue:work
+```
+
 
 ### Configurate
 - Server Configurate `.env`
