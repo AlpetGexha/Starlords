@@ -1,0 +1,99 @@
+{
+    "name": "laravel/laravel",
+    "type": "project",
+    "description": "The Laravel Framework.",
+    "keywords": ["framework", "laravel"],
+    "license": "MIT",
+    "require": {
+        "php": "^8.0.2",
+        "anhskohbo/no-captcha": "^3.4",
+        "artesaos/seotools": "^0.23.0",
+        "barryvdh/laravel-dompdf": "^2.0",
+        "coderflexx/laravisit": "^1.0",
+        "dirape/token": "^2.3",
+        "doctrine/dbal": "^3.4",
+        "guzzlehttp/guzzle": "^7.2",
+        "hammerstone/fast-paginate": "^0.1.10",
+        "laravel/framework": "^9.19",
+        "laravel/jetstream": "^2.10",
+        "laravel/sanctum": "^2.14.1",
+        "laravel/socialite": "^5.5",
+        "laravel/tinker": "^2.7",
+        "laraveldaily/laravel-charts": "^0.1.29",
+        "livewire/livewire": "^2.5",
+        "munafio/chatify": "^1.5",
+        "mydnic/laravel-kustomer": "^1.8",
+        "overtrue/laravel-subscribe": "^4.1",
+        "owen-it/laravel-auditing": "^13.0",
+        "ramsey/uuid": "^4.4",
+        "rappasoft/laravel-authentication-log": "^2.0",
+        "simplesoftwareio/simple-qrcode": "~4",
+        "spatie/cpu-load-health-check": "^1.0",
+        "spatie/laravel-backup": "^8.1",
+        "spatie/laravel-health": "^1.15",
+        "spatie/laravel-medialibrary": "10.0.7",
+        "spatie/laravel-permission": "^5.5",
+        "spatie/laravel-settings": "^2.4",
+        "spatie/laravel-tags": "^4.3",
+        "spatie/security-advisories-health-check": "^1.0",
+        "stripe/stripe-php": "^9.2",
+        "torann/geoip": "^3.0",
+        "wire-elements/spotlight": "^1.0",
+        "wireui/wireui": "^1.14"
+    },
+    "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.7",
+        "barryvdh/laravel-ide-helper": "^2.12",
+        "beyondcode/laravel-query-detector": "^1.6",
+        "fakerphp/faker": "^1.9.1",
+        "glhd/laravel-dumper": "^1.0",
+        "laravel/pint": "^1.0",
+        "laravel/sail": "^1.0.1",
+        "laravel/telescope": "^4.9",
+        "mockery/mockery": "^1.4.4",
+        "nunomaduro/collision": "^6.1",
+        "opcodesio/log-viewer": "^1.2",
+        "phpunit/phpunit": "^9.5.10",
+        "spatie/laravel-ignition": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
+            "@php artisan chatify:publish --ansi"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

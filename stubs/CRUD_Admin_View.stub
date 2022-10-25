@@ -1,0 +1,8 @@
+<x-admin>
+    <x-slot name="title">
+        {{ viewTitle }}
+    </x-slot>
+
+<livewire:{{ livewireRedirect }} />
+
+</x-admin>

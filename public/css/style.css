@@ -1,0 +1,235 @@
+/*--------------------------------------------------------------
+# Main Style
+--------------------------------------------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    /*outline: 1px solid limegreen !important;*/
+}
+
+[x-cloak] {
+    display: none !important;
+}
+
+:target {
+    scroll-margin-top: 50px;
+    -webkit-animation: target-fade 2s 1;
+    -moz-animation: target-fade 2s 1;
+}
+
+::selection {
+    background-color: rgb(63 131 248 / 0.5);
+}
+
+@-webkit-keyframes target-fade {
+    0% {
+        background-color: rgba(255, 0, 0, 0.1);
+    }
+
+    100% {
+        background-color: rgba(255, 255, 255, 0);
+    }
+}
+
+@-moz-keyframes target-fade {
+    0% {
+        background-color: rgba(255, 0, 0, 0.1);
+    }
+
+    100% {
+        background-color: rgba(0, 0, 0, 0);
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.inner-shadow {
+    box-shadow: 1px -198px 35px -6px rgba(0, 0, 0, 0.52) inset;
+    -webkit-box-shadow: 1px -198px 35px -6px rgba(0, 0, 0, 0.52) inset;
+    -moz-box-shadow: 1px -198px 35px -6px rgba(0, 0, 0, 0.52) inset;
+}
+
+/**********  Scrollbar **********/
+
+html::-webkit-scrollbar {
+    width: 18px;
+}
+
+html::-webkit-scrollbar-track {
+    background-color: white;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: #bebebe;
+    border-radius: 25px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(86, 83, 83);
+}
+
+/*
+a:hover {
+    text-decoration-line: underline;
+} */
+
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+
+.hero-section {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+
+/*--------------------------------------------------------------
+# Responsive Image gallery Style rules
+--------------------------------------------------------------*/
+
+.gallery .container {
+    padding: 40px 5%;
+}
+
+.gallery .heading-text {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.gallery .heading-text span {
+    font-weight: 100;
+}
+
+.gallery ul {
+    list-style: none;
+}
+
+/* Responsive image gallery rules begin*/
+
+.gallery .image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.gallery .image-gallery>li {
+    flex: 1 1 auto;
+    /* or flex: auto; */
+    height: 300px;
+    cursor: pointer;
+    position: relative;
+}
+
+.gallery .image-gallery::after {
+    content: "";
+    flex-grow: 999;
+}
+
+.gallery .image-gallery li img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    border-radius: 5px;
+}
+
+.gallery .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(57, 57, 57, 0.502);
+    top: 0;
+    left: 0;
+    transform: scale(0);
+    transition: all 0.2s 0.1s ease-in-out;
+    color: #fff;
+    border-radius: 5px;
+    /* center overlay content */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* hover */
+.gallery .image-gallery li:hover .overlay {
+    transform: scale(1);
+}
+
+.modal {
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    background-color: rgba(122, 64, 64, 0.171);
+    padding: 2rem;
+    border-radius: 5px;
+    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+.modalimg {
+    width: 600px;
+}
+
+@media only screen and (max-width: 700px) {
+    .modal-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: auto;
+        background-color: rgba(122, 64, 64, 0.171);
+        padding: 1rem;
+        border-radius: 5px;
+        box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+        z-index: 10;
+    }
+
+    .modalimg {
+        width: 200px;
+    }
+}
+
+.formposition {
+    border-radius: 50px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding-top: 1rem;
+}
+
+.buttonstyle {
+    height: 30px;
+    cursor: pointer;
+    border-radius: 50px;
+}

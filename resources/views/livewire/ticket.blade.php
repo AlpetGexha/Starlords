@@ -1,0 +1,1 @@
+<x-ticket :ticket="$ticket" />
