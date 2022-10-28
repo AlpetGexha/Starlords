@@ -11,6 +11,7 @@ use App\Traits\Reports\Reported;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Coderflex\Laravisit\Concerns\CanVisit;
 use Coderflex\Laravisit\Concerns\HasVisits;
+use Illuminate\Database\Eloquent\Builder;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Tags\HasTags;
@@ -127,5 +128,22 @@ class Event extends Model implements CanVisit, Auditable, HasMedia
             return "{$slug}-2";
         }
         return $slug;
+    }
+
+
+    public function scopeAvaible($query)
+    {
+        return $query
+            ->where('start_date', '>=', now())
+            ->where('end_date', '>=', now());
+    }
+
+    public function scopePopularLastWeek(Builder $builder): Builder
+    {
+        return $builder
+            ->whereBetween('created_at', [now()->subWeek(), now()])
+            ->orderBy('views', 'desc');
+            // most views for last week
+
     }
 }

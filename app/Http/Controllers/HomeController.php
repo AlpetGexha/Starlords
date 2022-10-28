@@ -12,6 +12,7 @@ use App\Settings\GeneralSettings;
 use App\Settings\HomeSettings;
 use Artesaos\SEOTools\Facades\{SEOMeta, OpenGraph, TwitterCard, JsonLd};
 use Artesaos\SEOTools\Facades\SEOTools;
+use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
@@ -35,11 +36,22 @@ class HomeController extends Controller
 
         // dd($ez);
 
-        $events = Event::with(['user:id,name,username', 'category', 'media'])->limit(4)->get();
-        $categorys = EventCategory::limit(15)->get();
+        $events = cache()->remember('home-event', 60 * 60 * 24, function () {
+            return Event::query()
+                ->with(['user:id,name,username', 'category', 'media'])
+                ->avaible()
+                ->popularLastWeek()
+                ->limit(4)
+                ->get();
+        });
 
+        $categorys = cache()->remember('home-category', 60 * 60 * 24, function () {
+            return EventCategory::limit(15)->get();
+        });
 
-        $sponzors = Sponzor::orderBy('id', 'asc')->get();
+        $sponzors = cache()->remember('home-sponzor', 60 * 60 * 24 * 3, function () { // 3day
+            return Sponzor::orderBy('id', 'asc')->get();
+        });
 
         return view('home', compact('events', 'categorys', 'setting', 'sponzors'));
     }
