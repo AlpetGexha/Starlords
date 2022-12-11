@@ -14,13 +14,11 @@
     <div class="mx-auto">
         <x-event-section href="{{ route('event.show') }}" text='Incoming Events'>
             {{-- @dd($events) --}}
-            @forelse ($events as $e)
-                <x-card-event :event='$e' />
-            @empty
-                <strong><span class="text-red-700">{{ __('No Events') }}</span></strong>
-            @endforelse
+            <livewire:event.incoming-events />
+
         </x-event-section>
     </div>
+
     <livewire:category.show />
 
     <x-partnerships :sponzors='$sponzors' />

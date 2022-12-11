@@ -3,13 +3,22 @@
 namespace App\Http\Livewire\Event;
 
 use App\Models\EventCategory;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 use Livewire\Component;
 
 class Search extends Component
 {
+    public $categorys = [];
     public $search;
     public $category = [];
+
+    public function loadCategory()
+    {
+        $this->categorys = Cache::remember('search-category', 60 * 60 * 6, function () {
+            return EventCategory::getCategory();
+        });
+    }
 
     public function search()
     {
@@ -27,6 +36,6 @@ class Search extends Component
     public function render()
     {
         $categorys = EventCategory::orderBy('id', 'desc')->get();
-        return view('livewire.event.search', compact('categorys'));
+        return view('livewire.event.search');
     }
 }

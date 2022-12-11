@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Cache\ClearsResponseCache;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -23,7 +24,7 @@ use Rappasoft\LaravelAuthenticationLog\Traits\AuthenticationLoggable;
 
 class User extends Authenticatable implements CanVisit, Auditable
 {
-    use HasApiTokens, HasFactory, HasProfilePhoto, Notifiable, TwoFactorAuthenticatable, HasWishlists, HasComments, HasVisits, HasRoles, Reporter, Subscriber, AuthenticationLoggable;
+    use HasApiTokens, HasFactory, HasProfilePhoto, Notifiable, TwoFactorAuthenticatable, HasWishlists, HasComments, HasVisits, HasRoles, Reporter, Subscriber, AuthenticationLoggable, ClearsResponseCache;
     use \OwenIt\Auditing\Auditable;
 
     protected $fillable = [

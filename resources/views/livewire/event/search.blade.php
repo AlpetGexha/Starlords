@@ -1,4 +1,4 @@
-<div class="flex flex-wrap items-end -mx-3" x-data="{
+<div wire:init='loadCategory' class="flex flex-wrap items-end -mx-3" x-data="{
     category: [],
     input: ''
 }">
@@ -14,9 +14,11 @@
         </label>
         <div class="relative">
             <x-select multiselect wire:model.defer='category'>
-                @foreach ($categorys as $category)
+                @forelse ($categorys as $category)
                     <x-select.option label="{{ $category->title }}" value="{{ $category->id }}" />
-                @endforeach
+               @empty
+                    <x-select.option label="LOADING..." />
+                @endforelse
             </x-select>
 
         </div>

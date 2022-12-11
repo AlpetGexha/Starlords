@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use App\Traits\Cache\ClearsResponseCache;
 use App\Traits\Uuid\HasUUID;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Ticket extends Model
 {
-    use HasFactory, HasUUID;
+    use HasFactory, HasUUID,ClearsResponseCache;
 
     protected $fillable = [
         'user_id', 'event_id', 'profile_id', 'date_expire', 'refund_date_expire', 'status', 'stripe_id', 'stripe_token', 'uuid', 'quantity', 'price', 'email'

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Cache\ClearsResponseCache;
 use Coderflex\Laravisit\Concerns\CanVisit;
 use Coderflex\Laravisit\Concerns\HasVisits;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -16,7 +17,7 @@ use Spatie\Tags\HasTags;
 
 class Blog extends Model implements HasMedia, CanVisit, Auditable
 {
-    use HasFactory, InteractsWithMedia, HasVisits, HasTags;
+    use HasFactory, InteractsWithMedia, HasVisits, HasTags, ClearsResponseCache;
     use \OwenIt\Auditing\Auditable;
 
     protected $fillable = [

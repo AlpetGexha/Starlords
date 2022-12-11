@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Cache\ClearsResponseCache;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
@@ -11,7 +12,7 @@ use OwenIt\Auditing\Contracts\Auditable;
 
 class TeamMember extends Model implements HasMedia, Auditable
 {
-    use HasFactory, InteractsWithMedia;
+    use HasFactory, InteractsWithMedia,ClearsResponseCache;
     use \OwenIt\Auditing\Auditable;
 
     protected $fillable = [

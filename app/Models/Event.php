@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Cache\ClearsResponseCache;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -19,7 +20,7 @@ use OwenIt\Auditing\Contracts\Auditable;
 
 class Event extends Model implements CanVisit, Auditable, HasMedia
 {
-    use HasFactory, Wishlistable, HasTags, Commentable, SoftDeletes, Reported, HasVisits, InteractsWithMedia;
+    use HasFactory, Wishlistable, HasTags, Commentable, SoftDeletes, Reported, HasVisits, InteractsWithMedia, ClearsResponseCache;
     use \OwenIt\Auditing\Auditable;
     protected $fillable = [
         'user_id', 'profile_id', 'title', 'slug', 'body', 'price', 'start_date', 'end_date', 'views'
