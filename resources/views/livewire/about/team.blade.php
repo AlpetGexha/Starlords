@@ -16,7 +16,7 @@
             </p>
         </div>
         <div class="flex justify-center p-4">
-            <div class="owl-carousel owl-theme">
+            <div class="owl-carousel owl-theme" wire:init='loadTeam'>
                 @forelse ($teams as $t)
                     <div class="text-center text-gray-500 dark:text-gray-400 item">
                         <img class="mx-auto mb-4 rounded-full" loading="lazy" style="width: 220px; !important"

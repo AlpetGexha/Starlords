@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Cache\ClearsResponseCache;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -12,7 +13,7 @@ use OwenIt\Auditing\Contracts\Auditable;
 
 class EventCategory extends Model implements HasMedia, Auditable
 {
-    use HasFactory, InteractsWithMedia;
+    use HasFactory, InteractsWithMedia,ClearsResponseCache;
     use \OwenIt\Auditing\Auditable;
 
     protected $fillable = [
@@ -39,5 +40,9 @@ class EventCategory extends Model implements HasMedia, Auditable
             ->addMediaConversion('thumb')
             ->width(415)
             ->height(220);
+    }
+
+    public function scopeGetCategory($query){
+        return $query->orderBy('id', 'desc')->get();
     }
 }

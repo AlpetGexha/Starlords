@@ -1,9 +1,9 @@
-<nav x-data="{ open: false, transprent: false, showBar: false }" class="navbar backdrop-blur bg-white sticky top-0 border-bottom shadow-lg py-4"
+<nav x-data="{ open: false, transprent: false, showBar: false }" class="navbar backdrop-blur bg-white sticky top-0 border-bottom shadow-lg py-4 z-50"
     {{-- :class="showBar ? 'py-2' : 'py-4'" @scroll.window="showBar = (window.pageYOffset => 20) ? true : false"  --}} {{-- x-transition --}}>
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
-            <div class="flex">
+            <div class="flex"
                 <!-- Logo -->
                 <div class="flex items-center">
                     <a href="{{ route('homepage') }}" class="cursor-pointer">

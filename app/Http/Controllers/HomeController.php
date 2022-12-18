@@ -33,15 +33,9 @@ class HomeController extends Controller
             collect(['url_image' => 'https://yt3.ggpht.com/afhnENJ2I2SGbg1tew5YFbR4-ZfZnpuDNXDwnidgrQOCyvSgCv_78eOEXsVvkdx--NjeGqMwLfc=s900-c-k-c0x00ffffff-no-rj', 'url' => 'https://laracon.net/', 'name' => 'Laracon']),
         ]);
 
-        // dd($ez);
-
-        $events = Event::with(['user:id,name,username', 'category', 'media'])->limit(4)->get();
-        $categorys = EventCategory::limit(15)->get();
-
-
         $sponzors = Sponzor::orderBy('id', 'asc')->get();
 
-        return view('home', compact('events', 'categorys', 'setting', 'sponzors'));
+        return view('home', compact('setting', 'sponzors'));
     }
 
     public function aboutus(AboutUsSettings $s)
