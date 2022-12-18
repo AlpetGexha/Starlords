@@ -31,7 +31,7 @@ class AdminController extends Controller
         $contacts_count = DB::table('contacts')->count('id');
         $category_count = DB::table('event_categories')->count('id');
         $organizer_count = DB::table('profiles')->count('id');
-        $feedback_count = DB::table('feedbacks')->count('id');
+        // $feedback_count = DB::table('feedbacks')->count('id');
         $tickets_count = DB::table('tickets')->sum('quantity');
         $ticket = Ticket::select('id', 'price', 'quantity')->get();
         // $tickets_price = DB::table('tickets')->select(DB::raw('sum(quantity * price) as total_price'))->first();
@@ -94,7 +94,7 @@ class AdminController extends Controller
         ];
         $payment_chart = new LaravelChart($payment_chart_optional);
 
-        return view('admin.dashboard', compact('users_count', 'event_count', 'category_count', 'organizer_count', 'contacts_count', 'feedback_count', 'event_chart', 'payment_chart', 'tickets_count', 'tickets_price'));
+        return view('admin.dashboard', compact('users_count', 'event_count', 'category_count', 'organizer_count', 'contacts_count', 'event_chart', 'payment_chart', 'tickets_count', 'tickets_price'));
     }
 
     public function settings()
